@@ -61,4 +61,8 @@ python main.py
 ```
 ### 4. Exit the System
 
-To exit the Q&A session: Simply type "exit" in the terminal.
+To exit the Q&A session:
+
+```bash
+exit
+```
