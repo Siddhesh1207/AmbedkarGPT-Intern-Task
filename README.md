@@ -23,9 +23,8 @@ The system will ingest the text from a provided short speech by Dr. B.R. Ambedka
 ### 2. Setup
 
 1.  **Clone the Repository:**
-    (Remember to replace `[YOUR_GITHUB_USERNAME]` with your actual username)
     ```bash
-    git clone [https://github.com/](https://github.com/)[YOUR_GITHUB_USERNAME]/AmbedkarGPT-Intern-Task.git
+    git clone [https://github.com/](https://github.com/)[Siddhesh1207]/AmbedkarGPT-Intern-Task.git
     cd AmbedkarGPT-Intern-Task
     ```
 
