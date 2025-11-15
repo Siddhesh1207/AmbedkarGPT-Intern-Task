@@ -14,7 +14,7 @@ from langchain_community.llms import Ollama
 from langchain_text_splitters import CharacterTextSplitter
 
 # --- 1. Load the Document ---
-# [cite_start]Load the 'speech.txt' file [cite: 8]
+# Load the 'speech.txt' file
 try:
     loader = TextLoader("speech.txt", encoding="utf-8")
     documents = loader.load()
@@ -27,7 +27,7 @@ except Exception as e:
     sys.exit(1)
 
 # --- 2. Split the Text ---
-# [cite_start]Split the document into manageable chunks [cite: 9]
+# Split the document into manageable chunks
 text_splitter = CharacterTextSplitter(
     separator="\n",  # Split on new lines
     chunk_size=200,  # Aim for chunks of this size
@@ -37,17 +37,17 @@ text_splitter = CharacterTextSplitter(
 texts = text_splitter.split_documents(documents)
 
 # --- 3. Create Embeddings ---
-# [cite_start]Use the specified HuggingFace embedding model [cite: 17]
+# Use the specified HuggingFace embedding model 
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
 # --- 4. Store in Vector Database ---
-# [cite_start]Use ChromaDB as the local vector store [cite: 10, 16]
+# Use ChromaDB as the local vector store 
 db = Chroma.from_documents(texts, embeddings)
 
 # --- 5. Setup the LLM ---
-# [cite_start]Use the local Ollama LLM with Mistral [cite: 18, 54]
+# Use the local Ollama LLM with Mistral
 llm = Ollama(model="mistral")
 
 # --- 6. Create the RAG Chain ---
@@ -67,12 +67,11 @@ Question: {input}"""
 )
 
 # 6b. Create the "Stuff" Documents Chain
-# This chain takes the context and question, formats them using the prompt,
-# [cite_start]and sends the result to the LLM. [cite: 12]
+# This chain takes the context and question, formats them using the prompt, and sends the result to the LLM. 
 document_chain = create_stuff_documents_chain(llm, prompt)
 
 # 6c. Create the Retriever
-# [cite_start]This object is responsible for fetching relevant documents from the vector store (Chroma). [cite: 11]
+# This object is responsible for fetching relevant documents from the vector store (Chroma). 
 retriever = db.as_retriever()
 
 # 6d. Create the Retrieval Chain
@@ -114,4 +113,5 @@ while True:
         break
     except KeyboardInterrupt:
         print("\nExiting...")
+
         break
