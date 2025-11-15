@@ -24,7 +24,7 @@ The system will ingest the text from a provided short speech by Dr. B.R. Ambedka
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/](https://github.com/)[Siddhesh1207]/AmbedkarGPT-Intern-Task.git
+    git clone https://github.com/Siddhesh1207/AmbedkarGPT-Intern-Task.git
     cd AmbedkarGPT-Intern-Task
     ```
 
@@ -58,3 +58,7 @@ With your Ollama application running in the background, execute the main script:
 
 ```bash
 python main.py
+```
+### 4. Exit the System
+
+To exit the Q&A session: Simply type "exit" in the terminal.
